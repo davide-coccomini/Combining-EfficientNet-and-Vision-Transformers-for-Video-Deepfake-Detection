@@ -1,0 +1,1 @@
+# Combining-EfficientNet-and-Vision-Transformersfor-Video-Deepfake-Detection
