@@ -1,0 +1,35 @@
+training:
+  lr: 0.01
+  weight-decay: 0.0000001
+  bs: 16
+  scheduler: 'steplr'
+  gamma: 0.1
+  step-size: 15
+  rebalancing-fake: 0.3
+  rebalancing-real: 1
+  frames-per-video: 30 # Equidistant frames
+
+model:
+  image-size: 224
+  num-classes: 1
+  depth: 4              # number of multi-scale encoding blocks
+  sm-dim: 192            # high res dimension
+  sm-patch-size: 7      # high res patch size (should be smaller than lg-patch-size)
+  sm-enc-depth: 2        # high res depth
+  sm-enc-dim-head: 64        
+  sm-enc-heads: 8        # high res heads
+  sm-enc-mlp-dim: 2048   # high res feedforward dimension
+  lg-dim: 384            # low res dimension
+  lg-patch-size: 56      # low res patch size
+  lg-enc-depth: 3        # low res depth
+  lg-enc-dim-head: 64    
+  lg-enc-heads: 8        # low res heads
+  lg-enc-mlp-dim: 2048   # low res feedforward dimensions
+  cross-attn-depth: 2    # cross attention rounds
+  cross-attn-dim-head: 64    
+  cross-attn-heads: 8    # cross attention heads
+  lg-channels: 24
+  sm-channels: 1280
+  dropout: 0.15
+  emb-dropout: 0.15
+  
