@@ -101,13 +101,13 @@ Move into the choosen architecture folder you want to evaluate and download the 
 (Efficient ViT)
 ```
 cd efficient-vit
-wget ...
+wget http://datino.isti.cnr.it/efficientvit_deepfake/efficient_vit.pth
 ```
 
 (Cross Efficient ViT)
 ```
 cd cross-efficient-vit
-wget ...
+wget http://datino.isti.cnr.it/efficientvit_deepfake/cross_efficient_vit.pth
 ```
 
 Then, issue the following commands for evaluating a given model giving the pre-trained model path and the configuration file available in the config directory:
