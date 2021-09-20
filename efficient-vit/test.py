@@ -206,7 +206,7 @@ if __name__ == "__main__":
 
     bar = Bar('Predicting', max=len(videos))
 
-    f = open(opt.dataset + "_" + model_name + "_labels.txt", "a")
+    f = open(opt.dataset + "_" + model_name + "_labels.txt", "w+")
     for index, video in enumerate(videos):
         video_faces_preds = []
         video_name = video_names[index]
@@ -217,6 +217,8 @@ if __name__ == "__main__":
             for i in range(0, len(video), opt.batch_size):
                 faces = video_faces[i:i+opt.batch_size]
                 faces = torch.tensor(np.asarray(faces))
+                if faces.shape[0] == 0:
+                    continue
                 faces = np.transpose(faces, (0, 3, 1, 2))
                 faces = faces.cuda().float()
                 
