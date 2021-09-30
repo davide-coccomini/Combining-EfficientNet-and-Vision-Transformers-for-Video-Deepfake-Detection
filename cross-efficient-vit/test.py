@@ -249,7 +249,7 @@ if __name__ == "__main__":
         for key in video:
             faces_preds = []
             video_faces = video[key]
-            for i in range(0, len(video), opt.batch_size):
+            for i in range(0, len(video_faces), opt.batch_size):
                 faces = video_faces[i:i+opt.batch_size]
                 faces = torch.tensor(np.asarray(faces))
                 if faces.shape[0] == 0:
