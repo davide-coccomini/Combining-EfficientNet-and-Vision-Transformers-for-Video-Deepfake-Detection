@@ -82,9 +82,9 @@ def read_frames(video_path, train_dataset, validation_dataset):
     # Calculate the interval to extract the frames
     frames_number = len(os.listdir(video_path))
     if label == 0:
-        min_video_frames = max(int(config['training']['frames-per-video'] * config['training']['rebalancing-fake']),1) # Compensate unbalancing
+        min_video_frames = max(int(config['training']['frames-per-video'] * config['training']['rebalancing-real']),1) # Compensate unbalancing
     else:
-        min_video_frames = max(int(config['training']['frames-per-video'] * config['training']['rebalancing-real']),1)
+        min_video_frames = max(int(config['training']['frames-per-video'] * config['training']['rebalancing-fake']),1)
 
     
     
