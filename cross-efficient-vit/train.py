@@ -82,9 +82,9 @@ def read_frames(video_path, train_dataset, validation_dataset):
     # Calculate the interval to extract the frames
     frames_number = len(os.listdir(video_path))
     if label == 0:
-        min_video_frames = max(int(config['training']['frames-per-video'] * config['training']['rebalancing-fake']),1) # Compensate unbalancing
+        min_video_frames = max(int(config['training']['frames-per-video'] * config['training']['rebalancing-real']),1) # Compensate unbalancing
     else:
-        min_video_frames = max(int(config['training']['frames-per-video'] * config['training']['rebalancing-real']),1)
+        min_video_frames = max(int(config['training']['frames-per-video'] * config['training']['rebalancing-fake']),1)
 
     
     
@@ -213,7 +213,7 @@ if __name__ == "__main__":
     validation_labels = np.asarray([row[1] for row in validation_dataset])
     labels = np.asarray([row[1] for row in train_dataset])
 
-    train_dataset = DeepFakesDataset(np.asarray([row[0] for row in train_dataset]), labels, config['training']['image-size'])
+    train_dataset = DeepFakesDataset(np.asarray([row[0] for row in train_dataset]), labels, config['model']['image-size'])
     dl = torch.utils.data.DataLoader(train_dataset, batch_size=config['training']['bs'], shuffle=True, sampler=None,
                                  batch_sampler=None, num_workers=opt.workers, collate_fn=None,
                                  pin_memory=False, drop_last=False, timeout=0,
@@ -221,7 +221,7 @@ if __name__ == "__main__":
                                  persistent_workers=False)
     del train_dataset
 
-    validation_dataset = DeepFakesDataset(np.asarray([row[0] for row in validation_dataset]), validation_labels, config['training']['image-size'], mode='validation')
+    validation_dataset = DeepFakesDataset(np.asarray([row[0] for row in validation_dataset]), validation_labels, config['model']['image-size'], mode='validation')
     val_dl = torch.utils.data.DataLoader(validation_dataset, batch_size=config['training']['bs'], shuffle=True, sampler=None,
                                     batch_sampler=None, num_workers=opt.workers, collate_fn=None,
                                     pin_memory=False, drop_last=False, timeout=0,
