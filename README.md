@@ -110,6 +110,10 @@ cd cross-efficient-vit
 wget http://datino.isti.cnr.it/efficientvit_deepfake/cross_efficient_vit.pth
 ```
 
+
+If you are unable to use the previous urls you can download the weights from [Google Drive](https://drive.google.com/drive/folders/19bNOs8_rZ7LmPP3boDS3XvZcR1iryHR1?usp=sharing).
+
+
 Then, issue the following commands for evaluating a given model giving the pre-trained model path and the configuration file available in the config directory:
 ```
 python3 test.py --model_path "pretrained_models/[model]" --config "configs/architecture.yaml"
