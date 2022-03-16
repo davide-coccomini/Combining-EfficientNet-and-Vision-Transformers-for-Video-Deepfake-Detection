@@ -19,7 +19,7 @@ def process_videos(videos, detector_cls: Type[VideoFaceDetector], selected_datas
 
     dataset = VideoDataset(videos)
     
-    loader = DataLoader(dataset, shuffle=False, num_workers=40, batch_size=1, collate_fn=lambda x: x)
+    loader = DataLoader(dataset, shuffle=False, num_workers=opt.processes, batch_size=1, collate_fn=lambda x: x)
     missed_videos = []
     for item in tqdm(loader): 
         result = {}
@@ -60,9 +60,9 @@ def main():
                         help='Dataset (DFDC / FACEFORENSICS)')
     parser.add_argument('--data_path', default='', type=str,
                         help='Videos directory')
-    parser.add_argument("--detector-type", help="type of the detector", default="FacenetDetector",
+    parser.add_argument("--detector-type", help="Type of the detector", default="FacenetDetector",
                         choices=["FacenetDetector"])
-                        
+    parser.add_argument("--processes", help="Number of processes", default=1)
     opt = parser.parse_args()
     print(opt)
 
@@ -87,7 +87,6 @@ def main():
                         videos_paths.append(os.path.join(opt.data_path, folder, video_name))
                 else: # For validation set
                     videos_paths.append(os.path.join(opt.data_path, folder))
-
 
     process_videos(videos_paths, opt.detector_type, dataset, opt)
 
