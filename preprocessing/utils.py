@@ -21,8 +21,8 @@ def get_video_paths(data_path, dataset, excluded_videos=[]):
             
         else:
             if not os.path.isdir(folder_path):
-                return videos_paths.extend([os.path.join(data_path, video_name) for video_name in videos_folders])
-
+                return [os.path.join(data_path, video_name) for video_name in videos_folders]
+            
             for index, video in enumerate(os.listdir(folder_path)):
                 if "metadata" in video or video.split(".")[0] in excluded_videos:
                     continue
