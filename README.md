@@ -1,4 +1,6 @@
 # Combining EfficientNet and Vision Transformers for Video Deepfake Detection
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/combining-efficientnet-and-vision/deepfake-detection-on-dfdc)](https://paperswithcode.com/sota/deepfake-detection-on-dfdc?p=combining-efficientnet-and-vision)
+
 
 Code for Video Deepfake Detection model from "Combining EfficientNet and Vision Transformers for Video Deepfake Detection" available on Arxiv and presented at ICIAP 2021 [<a href="https://arxiv.org/abs/2107.02612">Pre-print PDF</a> | <a href="https://www.springerprofessional.de/en/combining-efficientnet-and-vision-transformers-for-video-deepfak/20403304">Springer</a>]. Using this repository it is possible to train and test the two main architectures presented in the paper, Efficient Vision Transformers and Cross Efficient Vision Transformers, for video deepfake detection.
 The architectures exploits internally the <a href="https://github.com/lukemelas/EfficientNet-PyTorch">EfficientNet-Pytorch</a> and <a href="https://github.com/lucidrains/vit-pytorch/tree/main/vit_pytorch">ViT-Pytorch</a> repositories.
