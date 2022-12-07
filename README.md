@@ -23,7 +23,6 @@ Download and extract the dataset you want to use from:
 - FaceForensics++: https://github.com/ondyari/FaceForensics/blob/master/dataset/
 
 
-
 # Preprocess the data
 The preprocessing phase is based on <a href="https://github.com/selimsef/dfdc_deepfake_challenge">Selim Seferbekov implementation</a>.
 
